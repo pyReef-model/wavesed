@@ -623,37 +623,6 @@ class wave:
 
         return
 
-    def outputCSV(self, filename=None):
-        """
-        Output wave parameters in a CSV file.
-
-        Parameters
-        ----------
-        variable: filename
-            Name of the output file.
-        """
-
-        if self.resfac > 1:
-            tx = self.sxi
-            ty = self.syi
-            tz = self.sregZ
-        else:
-            tx = self.xi
-            ty = self.yi
-            tz = self.regZ
-
-        df = pd.DataFrame({'X':tx.flatten(),'Y':ty.flatten(),'Z':tz.T.flatten(),
-                           'wH':self.waveH.T.flatten(),'wLght':self.waveL.T.flatten(),
-                           'wDir':self.waveD.T.flatten(),'wPer':self.waveT.T.flatten(),
-                           'wPow':self.waveP.T.flatten(),'uBot':self.waveU.T.flatten(),
-                           'Shear':self.waveS.T.flatten(),'ent':self.Hent.T.flatten(),
-                           'dz':self.dz.T.flatten()
-                          })
-        df.to_csv(filename,columns=['X','Y','Z','wH','wLght','wDir','wPer',
-                                    'wPow','uBot','Shear','ent','dz'], sep=',', index=False)
-
-        return
-
     def outputCSV(self, filename=None, seddata=0):
         """
         Output wave parameters in a CSV file.
