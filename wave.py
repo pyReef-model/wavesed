@@ -908,7 +908,8 @@ class wave:
             print '   + erodep: fine erosion/deposition map'
             print '   + wH: fine wave height map'
             print '   + wS: fine wave induced shear stress map'
-
+            plt.close(fig)
+            
             return
 
         divider1 = make_axes_locatable(ax1)
@@ -919,5 +920,7 @@ class wave:
         plt.show()
         if save is not None:
             fig.savefig(save,dpi=200, bbox_inches='tight')
+
+        plt.close(fig)
 
         return
