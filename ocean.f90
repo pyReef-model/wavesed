@@ -83,7 +83,7 @@ contains
           c(i,j)=c0*l(i,j)/l0
           kh = depth(i,j)*pi2/l(i,j)
           tmp = 1.+2.*kh/sinh(2.*kh)
-          waveH(i,j) = H0/sqrt(tanh(kh)*tmp)
+          waveH(i,j) = h0/sqrt(tanh(kh)*tmp)
           n = 0.5*tmp
           ks(i,j) = sqrt(c0/(2.*n*c(i,j)))
         endif
@@ -169,8 +169,8 @@ contains
       do while(loop==0 .and. it<iter)
         loop = 1
         it = it+1
-        do j = 1, numcol
-          do i = 1, numrow
+        do j = 2, numcol-1
+          do i = 2, numrow-1
             if(ent(i,j)>0.)then
               loop = 0
               ! Below critical shear stress for entrainment deposit everything

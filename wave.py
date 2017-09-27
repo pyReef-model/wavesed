@@ -293,7 +293,7 @@ class wave:
         elif dir == 180:
             src[0,:] = 0
         # South
-        elif dir == 90:
+        elif dir == 270:
             src[:,0] = 0
         # North-East
         elif dir > 0 and dir < 90:
@@ -909,7 +909,7 @@ class wave:
             print '   + wH: fine wave height map'
             print '   + wS: fine wave induced shear stress map'
             plt.close(fig)
-            
+
             return
 
         divider1 = make_axes_locatable(ax1)
